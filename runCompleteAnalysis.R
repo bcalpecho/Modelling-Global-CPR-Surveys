@@ -167,6 +167,10 @@
     Carni_mdl_zib <- read_rds("output/mdls/Carni_mdl_zib.rds")
     Omni_mdl_zib <- read_rds("output/mdls/Omni_mdl_zib.rds")
     Filter_mdl_zib <- read_rds("output/mdls/Filter_mdl_zib.rds")
+
+    #list the models
+    mdl_list <- list(Carni_mdl_zib, Omni_mdl_zib, Filter_mdl_zib)
+    names(mdl_list) <- c("Carni","Omni","Filter")
     
   #5.1 quantile-quantile plot to assess normality of residuals
     plot_QQ(mdl_list)

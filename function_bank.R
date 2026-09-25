@@ -1427,14 +1427,14 @@
       # Bubble plot WITH random effects
       residuals_withRandom <- ggplot(data = autocorData, aes(x = Longitude, y = Latitude)) + 
         geom_map(data=world, map=world, aes(x = long, y = lat, map_id=region),
-                 color="white", fill="gray94", size=0.08) + 
+                 fill="#D9D9D9", size=0.08) + 
         geom_point(aes(size = abs(resids)/4, color = sign(resids)), shape = 1,
                    alpha = 0.4) + 
         scale_size_continuous(range=c(.1,4)) + 
         scale_colour_gradient(low = "springgreen3", high = "magenta3") + 
         ylab(NULL) + xlab(NULL) + 
         #annotate("text", x = -190, y = 90, label = "(b)", size = 9) +
-        guides(colour = "none", size = guide_legend(title = "Magnitude"))
+        guides(colour = "none", size = guide_legend(title = "Magnitude")) + theme_bw()
       
       #to save individual plot
       # ggsave(paste("output/plots/",TG,"_residualMap_withRandom_",date,".png",sep=""), plot = residuals_withRandom,
@@ -1462,14 +1462,14 @@
       # Bubble plot WITHOUT random effects
       residuals_noRandom <- ggplot(data = autocorData, aes(x = Longitude, y = Latitude)) + 
         geom_map(data=world, map=world, aes(x = long, y = lat, map_id=region),
-                 color="white", fill="gray94", size=0.08) + 
+                 fill="#D9D9D9", size=0.08) + 
         geom_point(aes(size = abs(resids)/4, color = sign(resids)), shape = 1,
                    alpha = 0.4)  + 
         scale_size_continuous(range=c(.1,4)) + 
         scale_colour_gradient(low = "springgreen3", high = "magenta3") + 
         ylab(NULL) + xlab(NULL) + 
         #annotate("text", x = -190, y = 90, label = "(a)", size = 9) +
-        guides(colour = "none", size = guide_legend(title = "Magnitude"))
+        guides(colour = "none", size = guide_legend(title = "Magnitude")) + theme_bw()
       
       # #save plot of residuals without random effects
       # ggsave(paste("output/plots/",TG,"_residualMap_noRandom_",date,".png",sep=""), plot = residuals_noRandom,
